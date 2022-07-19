@@ -1,0 +1,42 @@
+{
+  "name": "react-yesterday",
+  "version": "1.0.1-alpha.0",
+  "description": "react-yesterday",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "exports": {
+    "require": "./dist/index.js",
+    "default": "./dist/index.modern.mjs"
+  },
+  "scripts": {
+    "test:dev": "vitest --ui",
+    "test:prod": "vitest run",
+    "test": "yarn run test:prod",
+    "watch:prod": "microbundle watch --external react,react-dom",
+    "watch:dev": "microbundle watch --external react,react-dom --compress false",
+    "watch": "concurrently \"yarn run watch:dev\" \"yarn run test:dev\"",
+    "build:prod": "microbundle --sourcemap false --external react,react-dom",
+    "build:dev": "microbundle --sourcemap false --external react,react-dom --compress false",
+    "build": "yarn run test && yarn run build:prod",
+    "dev": "yarn run watch"
+  },
+  "repository": "https://github.com/flamrdevs/react-yesterday.git",
+  "author": "flamrdevs <flamrdevs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^1.3.2",
+    "@vitest/ui": "^0.18.0",
+    "concurrently": "^7.2.2",
+    "jsdom": "^20.0.0",
+    "microbundle": "^0.15.0",
+    "vitest": "^0.18.0"
+  }
+}
